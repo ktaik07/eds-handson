@@ -1,0 +1,42 @@
+.teaser {
+  position: relative;
+  width: 100%;
+  max-width: 1600px; /* 必要に応じて最大幅を設定 */
+  margin-top: var(--default-margin);
+  margin-bottom: var(--default-margin);
+}
+
+.teaser picture img {
+  width: 100%;
+  height: auto;
+  display: block; /* 画像のデフォルトのマージン/パディングを排除 */
+}
+
+.teaser .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* テキストの色を調整 */
+}
+
+.teaser h3 {
+  /* color: #333; */
+  margin-top: 15px;
+}
+
+.teaser p {
+  /* color: #666; */
+  margin-top: 10px;
+}
+
+.teaser a.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 5px 30px;
+  background-color: var(--link-color);
+  color: var(--background-color);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+}

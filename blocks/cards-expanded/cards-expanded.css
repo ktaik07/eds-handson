@@ -1,0 +1,65 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* カード間の間隔 */
+  box-sizing: border-box;
+  list-style: none; /* リストマーカーを削除 */
+  padding-left: 0; /* デフォルトのパディングを削除 */
+  margin: 12px 0; /* デフォルトのマージンを削除 */
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--background-color);
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+.cards-2-col .card {
+  flex: 0 0 calc(50% - 6px);
+}
+
+.cards-3-col .card {
+  flex: 0 0 calc(33% - 6px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.card-content a:hover {
+  text-decoration: underline;
+  color: currentColor;
+}
+
+.card-content h1,
+.card-content h2,
+.card-content h3,
+.card-content h4,
+.card-content h5,
+.card-content h6 {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .cards-2-col .card,
+  .cards-3-col .card {
+    flex: 0 0 100%; /* 1カラム */
+  }
+}

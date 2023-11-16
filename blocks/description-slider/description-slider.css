@@ -1,0 +1,114 @@
+.description-slider {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  margin-top: var(--default-margin);
+  margin-bottom: var(--default-margin);
+  padding-bottom: 30px;
+}
+
+.slides {
+  margin-bottom: 0px; /* スライドの下部に余白を追加 */
+}
+
+.slides .slide {
+  display: none; /* はじめは全てのスライドを隠す */
+  text-align: center;
+}
+
+.slides .slide:first-child {
+  display: block; /* 最初のスライドだけを表示 */
+}
+
+.slides .slide picture {
+  margin: 0;
+  padding: 0;
+}
+
+.slides .slide picture img {
+  width: 100%; /* 画像のサイズ調整 */
+  display: block; /* 画像をブロック要素として表示 */
+  vertical-align: top; /* 画像の垂直方向のアラインメントを調整 */
+  margin: 0; /* マージンをリセット */
+  height: auto;
+  border: none;
+  border-top-left-radius: var(--border-radius); /* 左上の角 */
+  border-top-right-radius: var(--border-radius); /* 右上の角 */
+}
+
+.text-box {
+  padding: 15px;
+  text-align: left;
+  background-color: var(--dark-shade-color);
+  color: var(--background-color);
+  border-bottom-left-radius: var(--border-radius); /* 左下の角 */
+  border-bottom-right-radius: var(--border-radius); /* 右下の角 */
+}
+
+a.prev,
+a.next {
+  cursor: pointer;
+  position: absolute; /* 絶対位置に変更 */
+  top: 50%; /* 親要素の中央に配置 */
+  transform: translateY(-50%); /* Y軸方向の中央揃え */
+  z-index: 10; /* 画像やテキストより前面に配置 */
+  margin: 0 10px; /* 両サイドの余白 */
+  width: auto;
+  padding: 10px;
+  color: var(--middle-shade-color);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  text-decoration: none;
+}
+
+a.prev {
+  right: 25px; /* 左端からの位置 */
+}
+
+a.next {
+  right: 5px; /* 左端からの位置 */
+}
+
+a.prev:hover,
+a.next:hover {
+  color: var(--dark-shade-color);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center; /* 中央揃え */
+  position: absolute;
+  bottom: 0; /* テキストボックスの直下 */
+  width: 100%;
+  padding: 10px 0; /* 上下の余白 */
+  box-sizing: border-box;
+  z-index: 5; /* ナビゲーションボタンよりは背面に配置 */
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* コンテナの幅に合わせて */
+}
+
+.indicator {
+  width: 20px;
+  height: 2px;
+  background-color: var(--middle-shade-color);
+  margin: 0 2px;
+  /*cursor: pointer;*/
+}
+
+.indicator.active {
+  background-color: var(
+    --dark-shade-color
+  ); /* アクティブなインジケーターの色 */
+}

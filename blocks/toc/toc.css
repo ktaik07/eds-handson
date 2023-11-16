@@ -1,0 +1,43 @@
+#toc {
+  padding: 20px;
+  max-width: 300px;
+}
+
+#toc h5 {
+  margin-top: 0;
+  font-size: var(--body-font-size-l);
+  border-bottom: 1px solid var(--border-color);
+  line-height: 2.5rem;
+}
+
+#toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#toc li {
+  margin-bottom: 10px;
+}
+
+#toc li.h2 {
+  padding-left: 0;
+}
+
+#toc li.h3 {
+  padding-left: 20px;
+}
+
+#toc a {
+  text-decoration: none;
+  color: var(--dark-shade-color);
+}
+
+#toc a:hover {
+  text-decoration: underline;
+}
+
+#toc a.active {
+  color: var(--text-color);
+  font-weight: bold;
+}

@@ -1,17 +1,39 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background: linear-gradient(
+    45deg,
+    var(--gradient-color1),
+    var(--gradient-color2),
+    var(--gradient-color3)
+  );
   width: 100%;
   z-index: 2;
   position: fixed;
+  transition: background-color 0.3s ease; /* スムーズな背景色の変更 */
+}
+
+/* header and nav layout */
+header .nav-wrapper.on-hero {
+  background-color: transparent;
+  background-image: none;
+}
+
+header .scrolled {
+  background: linear-gradient(
+    45deg,
+    var(--gradient-color1),
+    var(--gradient-color2),
+    var(--gradient-color3)
+  ) !important;
+  transition: background-color 0.3s ease; /* スムーズな背景色の変更 */
 }
 
 header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+    "hamburger brand tools" var(--nav-height)
+    "sections sections sections" 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 2em;
   margin: auto;
@@ -23,11 +45,15 @@ header nav {
 
 header nav[aria-expanded="true"] {
   grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    "hamburger brand" var(--nav-height)
+    "sections sections" 1fr
+    "tools tools" var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100vh;
+}
+
+header .nav-wrapper.on-hero nav[aria-expanded="true"] {
+  background: none;
 }
 
 @media (min-width: 600px) {
@@ -54,7 +80,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--background-color);
 }
 
 /* hamburger */
@@ -71,7 +97,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -89,7 +115,7 @@ header nav .nav-hamburger-icon::after {
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   background: currentcolor;
 }
@@ -167,15 +193,20 @@ header nav[aria-expanded="true"] .nav-sections {
   align-self: start;
 }
 
-header nav .nav-sections ul  {
+header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
+  color: var(--background-color);
 }
 
 header nav .nav-sections ul > li {
   font-weight: 700;
+}
+
+header nav .nav-sections ul > li a {
+  color: var(--text-color);
 }
 
 header nav .nav-sections ul > li > ul {
@@ -199,41 +230,28 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop {
     position: relative;
-    padding-right: 16px;
+    padding: 14px;
     cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: .5em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded="true"]::after {
-    top: unset;
-    bottom: .5em;
-    transform: rotate(315deg);
   }
 
   header nav .nav-sections ul {
     display: flex;
     gap: 2em;
     margin: 0;
-    font-size: var(--body-font-size-xs);
+    font-size: var(--body-font-size-s);
   }
 
   header nav .nav-sections > ul > li {
     flex: 0 1 auto;
+    display: auto;
     position: relative;
     font-weight: 500;
+  }
+
+  header nav .nav-sections > ul > li:hover {
+    border-bottom: 2px solid var(--text-color);
+    margin-bottom: -2px;
+    transition: width 0.3s ease;
   }
 
   header nav .nav-sections > ul > li > ul {
@@ -241,27 +259,17 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded="true"] > ul {
+  header nav .nav-sections > ul > li:hover > ul {
     display: block;
     position: absolute;
-    left: -1em;
-    width: 200px;
-    margin-top: 12px;
+    left: -0.25em;
+    width: 300px;
+    margin-top: 16px;
     padding: 1em;
-    background-color: var(--highlight-background-color);
+    background-color: rgb(255, 255, 255, 0.9);
     white-space: initial;
-  }
-
-  header nav .nav-sections > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--highlight-background-color);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    box-shadow: var(--box-shadow);
   }
 
   header nav .nav-sections > ul > li > ul > li {
