@@ -57,11 +57,13 @@
   --border-style: solid;
   --border-radius: 4px;
 
-  /* header-gradient-color */
+  /* header-color */
   --gradient-color1: #e34487;
-  --gradient-color2: #feb27d;
-  --gradient-color3: #ef353d;
-  --header-background-color: #1f2430;
+  --gradient-color2: #ef353d;
+  --gradient-color3: #feb27d;
+  --header-background-color: var(--dark-shade-color); /* not used */
+  --header-text-color: var(--background-color);
+  --header-dropdown-text-color: var(--text-color);
 
   /* nav height */
   --nav-height: 64px;
@@ -319,6 +321,7 @@ main .section.articles {
 /* sidebar layout style */
 main.flex-container {
   display: flex; /* Flexboxを使用 */
+  position: relative;
   justify-content: center; /* 中央揃え */
   background-color: var(--light-shade-color);
 }
@@ -349,6 +352,11 @@ main.flex-container {
   margin: 1em 1em;
   border-radius: var(--border-radius);
   padding: 1em 2em;
+}
+
+.flex-container .hero-container + .main-content,
+.flex-container .hero-container + .main-content + .sidebar {
+  margin-top: calc(var(--hero-height) + 1em);
 }
 
 @media (max-width: 900px) {

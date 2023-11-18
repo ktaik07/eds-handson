@@ -1,6 +1,6 @@
 :root {
   /* ヒーロー画像の高さ */
-  --hero-height: 75vh;
+  --hero-height: 50vh;
 }
 /* block specific CSS goes here */
 
@@ -14,7 +14,7 @@ main .hero-container {
 
 main .hero {
   position: absolute;
-  top: 0;
+  top: calc(-1 * var(--nav-height));
   left: 0;
   width: 100%;
   padding: 32px;
@@ -29,8 +29,8 @@ main .hero {
 
 main .hero h1 {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto;
+  padding: 0 2rem;
   color: white;
   text-align: center;
 }
@@ -54,15 +54,20 @@ main .hero img {
 
 main .hero p {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto;
+  padding: 0 2rem;
   color: white;
   text-align: center;
 }
 
+/* 内部のテキストボックス背景を暗くする */
+main .hero.dark > div {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 main .hero-placeholder {
   width: 100%;
-  height: var(--hero-height);
+  height: calc(var(--hero-height) - var(--nav-height));
   display: block; /* 必要に応じて */
   /* その他のスタイル設定 */
 }

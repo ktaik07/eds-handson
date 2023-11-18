@@ -1,11 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background: linear-gradient(
-    45deg,
-    var(--gradient-color1),
-    var(--gradient-color2),
-    var(--gradient-color3)
-  );
+  background: var(--header-background-color);
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -19,12 +14,7 @@ header .nav-wrapper.on-hero {
 }
 
 header .scrolled {
-  background: linear-gradient(
-    45deg,
-    var(--gradient-color1),
-    var(--gradient-color2),
-    var(--gradient-color3)
-  ) !important;
+  background: var(--header-background-color) !important;
   transition: background-color 0.3s ease; /* スムーズな背景色の変更 */
 }
 
@@ -80,7 +70,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: var(--background-color);
+  color: var(--header-text-color);
 }
 
 /* hamburger */
@@ -198,7 +188,7 @@ header nav .nav-sections ul {
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
-  color: var(--background-color);
+  color: var(--header-text-color);
 }
 
 header nav .nav-sections ul > li {
@@ -206,7 +196,7 @@ header nav .nav-sections ul > li {
 }
 
 header nav .nav-sections ul > li a {
-  color: var(--text-color);
+  color: var(--header-dropdown-text-color);
 }
 
 header nav .nav-sections ul > li > ul {

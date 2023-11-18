@@ -147,4 +147,29 @@ async function loadPage() {
   loadDelayed();
 }
 
+/**
+ * Custom Structure rendering script
+ */
+function addContentWrapper() {
+  const main = doc.querySelector("main");
+  loadBlocks(main);
+
+  // コンテンツラッパーの作成
+  const contentWrapper = document.createElement("div");
+  contentWrapper.classList.add("content-wrapper");
+
+  if (main) {
+    // mainの直下の子要素をループしてdivのみを選択
+    console.log(main.children);
+    Array.from(main.children).forEach((child) => {
+      contentWrapper.appendChild(child);
+    });
+
+    // contentWrapperをmainの最初の子要素として挿入
+    main.insertBefore(contentWrapper, main.firstChild);
+  } else {
+    console.log("main要素が見つかりません。");
+  }
+}
+
 loadPage();

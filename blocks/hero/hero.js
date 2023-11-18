@@ -1,5 +1,6 @@
+// Hero画像の高さを取得して、その高さ分の余白を挿入する
 function insertHeroPlaceholder() {
-  const heroBlock = document.querySelector(".hero-container");
+  const heroBlock = document.querySelector(".hero");
 
   if (heroBlock) {
     // heroBlock 内の <img> 要素の高さを取得
@@ -8,7 +9,6 @@ function insertHeroPlaceholder() {
 
     const placeholder = document.createElement("div");
     placeholder.className = "hero-placeholder";
-    //placeholder.style.height = `${pictureHeight}px`; // <img> の高さを使用
     heroBlock.insertAdjacentElement("afterend", placeholder);
   }
 }
@@ -19,6 +19,7 @@ if (document.readyState === "loading") {
   insertHeroPlaceholder();
 }
 
+// ヒーローブロックがある場合にヘッダーの背景を透過するために、ヘッダーにクラスを追加する
 function setupMutationObserver() {
   const observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {

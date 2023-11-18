@@ -39,8 +39,8 @@
 .text-box {
   padding: 15px;
   text-align: left;
-  background-color: var(--dark-shade-color);
-  color: var(--background-color);
+  background-color: var(--light-shade-color);
+  color: var(--text-color);
   border-bottom-left-radius: var(--border-radius); /* 左下の角 */
   border-bottom-right-radius: var(--border-radius); /* 右下の角 */
 }
@@ -104,7 +104,11 @@ a.next:hover {
   height: 2px;
   background-color: var(--middle-shade-color);
   margin: 0 2px;
-  /*cursor: pointer;*/
+  cursor: pointer;
+}
+
+.indicator:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* ホバー時の背景色変更 */
 }
 
 .indicator.active {

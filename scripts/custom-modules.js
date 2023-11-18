@@ -1,10 +1,19 @@
-// サイドバーとメインコンテンツのレイアウトの場合、 flex-container クラスを追加する
-document.addEventListener("DOMContentLoaded", () => {
-  const mainElement = document.querySelector("main");
-  const sidebar = mainElement.querySelector(".sidebar");
-  const mainContent = mainElement.querySelector(".main-content");
+import { getMetadata } from "./aem.js";
 
-  if (sidebar && mainContent) {
+// TemplateがArticlesの場合、サイドバー付きのレイアウトにするため、mainコンテナにflex-containerクラスを追加する
+document.addEventListener("DOMContentLoaded", () => {
+  const template = getMetadata("template").toLowerCase();
+  if (template === "articles") {
+    const mainElement = document.querySelector("main");
     mainElement.classList.add("flex-container");
+  }
+});
+
+// TemplateがArticlesの場合、サイドバー付きのレイアウトにするため、mainコンテナにflex-containerクラスを追加する
+document.addEventListener("DOMContentLoaded", () => {
+  const template = getMetadata("template").toLowerCase();
+  if (template === "articles") {
+    const mainElement = document.querySelector(".hero");
+    mainElement.classList.add("dark");
   }
 });
