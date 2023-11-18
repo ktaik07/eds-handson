@@ -28,15 +28,13 @@
   --dark-shade-color: #455a64;
 
   /* fonts */
-  --body-font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+  /* --body-font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
     YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN",
     "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
-    "MS PGothic", sans-serif;
+    "MS PGothic", sans-serif;*/
+  --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
-    YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN",
-    "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
-    "MS PGothic", sans-serif, monospace;
+  --fixed-font-family: var(--body-font-family), monospace;
 
   /* body font sizes */
   --body-font-size-l: 1.25rem; /* 20px */
